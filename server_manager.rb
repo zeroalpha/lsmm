@@ -24,8 +24,9 @@ class ServerManager
   Ports :
   """
 
-  def initialize()
-    @server_script = File.expand_path("~/sdtdserver")
+  def initialize(script_name,telnet_password)
+    @server_script = File.expand_path("~/" + script_name)
+    @telnet_password = telnet_password
     @server_status = parse_server_details()
   end
 
@@ -71,7 +72,7 @@ class ServerManager
 
       sock = TCPSocket.new "127.0.0.1", 8081
       sock.gets
-      sock.puts "admin3COe3MGm"
+      sock.puts @telnet_password
 
       loop do
         # evtl user input lesen
@@ -127,13 +128,10 @@ class ServerManager
           print "Command: "
         end
       end
-
-
-
       #break
     end
   end
-
+private
   def print_banner()
     printf REPL_BANNER%[@server_status[:status][0],@server_status[:ip]]
     @server_status[:ports].each{|pair| puts "  %-10s: %s"%pair}
