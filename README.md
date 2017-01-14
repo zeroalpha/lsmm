@@ -2,8 +2,8 @@
 Linux server manager Manager
 
 # About
-lsmm is a small utility script to save me from having to keep trying to reconnet the servers telnet console by hand after restarting it
-servers meaning [these](https://gameservermanagers.com)
+lsmm is a small utility class to save me from having to keep trying to reconnet my game servers telnet console by hand after restarting it.
+It (presumably) works with all [Linux Game Server Manager](https://gameservermanagers.com) scripts
 
 # Usage
 
